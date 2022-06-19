@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000/hhc';
+const url = 'https://hhc-evv.deno.dev/hhc';
 const submitFormData = async (e) => {
   e.preventDefault();
   e.stopPropagation();
