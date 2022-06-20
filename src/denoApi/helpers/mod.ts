@@ -1,35 +1,15 @@
-import 'https://deno.land/x/dotenv/load.ts';
-import { SmtpClient } from 'https://deno.land/x/smtp/mod.ts';
-const { SEND_EMAIL, PWD, RECV_EMAIL } = Deno.env.toObject();
-
-const getSmtpClient = async () => {
-  const client = new SmtpClient();
-
-  const connectConfig: any = {
-    hostname: 'smtp.gmail.com',
-    port: 465,
-    username: SEND_EMAIL,
-    password: PWD,
-  };
-  await client.connectTLS(connectConfig);
-  return client;
-};
+import { sendEmail as sendEmailWithMailChimp } from './mailClients/MailChimpClient.ts';
 
 const sendEmail = async (payload: {
   consumerName: string;
   employeeName: string;
 }) => {
-  const subject = `Missed EVV - ${payload.consumerName}/${payload.employeeName}`;
-
-  // Use google gmail api to send email
-  const gClient = await getSmtpClient();
-  await gClient.send({
-    from: SEND_EMAIL,
-    to: RECV_EMAIL,
-    content: JSON.stringify(payload),
-    subject,
-  });
-  await gClient.close();
+  try {
+    const subject = `Missed EVV - ${payload.consumerName}/${payload.employeeName}`;
+    return sendEmailWithMailChimp(subject, JSON.stringify(payload));
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export { sendEmail };

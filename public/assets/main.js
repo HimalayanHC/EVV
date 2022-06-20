@@ -1,4 +1,21 @@
-const url = 'https://hhc-evv.deno.dev/hhc';
+const url = 'http://localhost:8000/hhc';
+
+const toggleSubmitBtn = (disabled = false) => {
+  const submitBtn = document.getElementById('submitData');
+  if (disabled) {
+    submitBtn.setAttribute('disabled', true);
+    submitBtn.setAttribute(
+      'class',
+      'inline-block w-full px-6 py-2.5 bg-gray-200 text-gray-700 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out',
+    );
+  } else {
+    submitBtn.removeAttribute('disabled');
+    submitBtn.setAttribute(
+      'class',
+      'mb-2 w-full inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out',
+    );
+  }
+};
 const submitFormData = async (e) => {
   e.preventDefault();
   e.stopPropagation();
@@ -13,12 +30,7 @@ const submitFormData = async (e) => {
       dataToEmail[key] = value;
     }
   }
-  const submitBtn = document.getElementById('submitData');
-  submitBtn.setAttribute('disabled', true);
-  submitBtn.setAttribute(
-    'class',
-    'inline-block w-full px-6 py-2.5 bg-gray-200 text-gray-700 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out',
-  );
+  toggleSubmitBtn(true);
   await submitForm(dataToEmail);
 };
 
@@ -80,12 +92,9 @@ const enableSubmitButton = () => {
   const employeeConsent = formData.get('employeeConsent');
   // check if other fields are valid
   if (consumerConsent && employeeConsent) {
-    const submitBtn = document.getElementById('submitData');
-    submitBtn.removeAttribute('disabled');
-    submitBtn.setAttribute(
-      'class',
-      'mb-2 w-full inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out',
-    );
+    toggleSubmitBtn(false);
+  } else {
+    toggleSubmitBtn(true);
   }
 };
 const evvForm = document.getElementById('evvForm');
