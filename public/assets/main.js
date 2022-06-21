@@ -21,9 +21,7 @@ const submitFormData = async (e) => {
   e.stopPropagation();
   const formData = new FormData(document.querySelector('form'));
   const dataToEmail = {};
-  const excludeKeys = ['consumerConsent', 'employeeConsent'];
   for (const [key, value] of formData.entries()) {
-    if (excludeKeys.includes(key)) continue;
     if (dataToEmail.hasOwnProperty(key)) {
       dataToEmail[key] = `${dataToEmail[key]}, ${value}`;
     } else {
@@ -64,12 +62,12 @@ const submitForm = async (payload) => {
       return;
     }
     serverRespSection.setAttribute('class', commonSectionClass);
-    document
-      .getElementById('serverErrorSection')
-      .setAttribute('class', 'hidden');
-    setTimeout(() => {
-      window.location.reload(true);
-    }, 5000);
+    // document
+    //   .getElementById('serverErrorSection')
+    //   .setAttribute('class', 'hidden');
+    // setTimeout(() => {
+    //   window.location.reload(true);
+    // }, 5000);
   } catch (err) {
     alert('Something went wrong!');
     window.location.reload(true);
@@ -78,9 +76,9 @@ const submitForm = async (payload) => {
 
 const showReasonText = () => {
   const formData = new FormData(document.querySelector('form'));
-  const missedType = formData.get('missedType');
+  const missedevent = formData.get('missedevent');
   const cl =
-    missedType === 'Other Reason'
+    missedevent === 'OtherEvent'
       ? 'flex flex-wrap -mx-3 mb-6'
       : 'flex flex-wrap -mx-3 mb-6 hidden';
   document.getElementById('otherReasonsTextareaDiv').setAttribute('class', cl);
@@ -88,8 +86,8 @@ const showReasonText = () => {
 
 const enableSubmitButton = () => {
   const formData = new FormData(document.querySelector('form'));
-  const consumerConsent = formData.get('consumerConsent');
-  const employeeConsent = formData.get('employeeConsent');
+  const consumerConsent = formData.get('consumeragree');
+  const employeeConsent = formData.get('employeeagree');
   // check if other fields are valid
   if (consumerConsent && employeeConsent) {
     toggleSubmitBtn(false);

@@ -29,7 +29,7 @@
                 <input
                   class="form-check-input form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                   type="radio"
-                  name="missedType"
+                  name="missedevent"
                   id="missedIn"
                   value="Missed In"
                   onchange="showReasonText()"
@@ -44,7 +44,7 @@
                 <input
                   class="form-check-input form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                   type="radio"
-                  name="missedType"
+                  name="missedevent"
                   id="missedOut"
                   value="Missed Out"
                   onchange="showReasonText()"
@@ -59,7 +59,7 @@
                 <input
                   class="form-check-input form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                   type="radio"
-                  name="missedType"
+                  name="missedevent"
                   id="missedInAndOut"
                   value="Missed In and Out"
                   onchange="showReasonText()"
@@ -74,9 +74,9 @@
                 <input
                   class="form-check-input form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                   type="radio"
-                  name="missedType"
+                  name="missedevent"
                   id="otherReason"
-                  value="Other Reason"
+                  value="OtherEvent"
                   onchange="showReasonText()"
                 />
                 <label
@@ -104,7 +104,7 @@
                   class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                   id="otherReasonTextarea"
                   rows="3"
-                  name="otherReasonText"
+                  name="reasonmissed"
                   placeholder="Your Reasons..."
                 ></textarea>
 
@@ -127,7 +127,7 @@
                   class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                   id="consumer-name"
                   type="text"
-                  name="consumerName"
+                  name="consumername"
                   placeholder="Enter consumer's name"
                 />
                 <p class="text-neutral-500 text-xs italic">
@@ -146,7 +146,7 @@
                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="employee-name"
                   type="text"
-                  name="employeeName"
+                  name="employeename"
                   placeholder="Enter employee name"
                 />
                 <p class="text-neutral-500 text-xs italic">
@@ -169,7 +169,7 @@
                   type="number"
                   min="0"
                   max="99999"
-                  name="consumerPin"
+                  name="consumerpin"
                   placeholder="Enter consumer's pin"
                 />
                 <p class="text-neutral-500 text-xs italic">
@@ -190,7 +190,7 @@
                   type="number"
                   min="0"
                   max="99999"
-                  name="employeePin"
+                  name="employeepin"
                   placeholder="Enter employee pin"
                 />
                 <p class="text-neutral-500 text-xs italic">
@@ -211,7 +211,7 @@
                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="missed-date"
                   type="date"
-                  name="missedDate"
+                  name="misseddate"
                   placeholder="Enter missed date"
                 />
               </div>
@@ -226,7 +226,7 @@
                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="missed-in-time"
                   type="time"
-                  name="missedInTime"
+                  name="missedintime"
                   placeholder="Enter missed in time"
                 />
               </div>
@@ -241,7 +241,7 @@
                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="missed-out-time"
                   type="time"
-                  name="missedOutTime"
+                  name="missedouttime"
                   placeholder="Enter missed out time"
                 />
               </div>
@@ -260,7 +260,7 @@
                       <input
                         type="checkbox"
                         value="115 - Meal Preparation"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-115"
                         class="sr-only peer"
                       />
@@ -279,7 +279,7 @@
                       <input
                         type="checkbox"
                         value="116 - Housework/Chore"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-116"
                         class="sr-only peer"
                       />
@@ -298,7 +298,7 @@
                       <input
                         type="checkbox"
                         value="117 - Managing Finances"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-117"
                         class="sr-only peer"
                       />
@@ -317,7 +317,7 @@
                       <input
                         type="checkbox"
                         value="118 - Managing Medications"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-118"
                         class="sr-only peer"
                       />
@@ -339,7 +339,7 @@
                       <input
                         type="checkbox"
                         value="119 - Shopping"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-119"
                         class="sr-only peer"
                       />
@@ -358,7 +358,7 @@
                       <input
                         type="checkbox"
                         value="120 - Transportation"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-120"
                         class="sr-only peer"
                       />
@@ -377,7 +377,7 @@
                       <input
                         type="checkbox"
                         value="122 - Hygiene"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-122"
                         class="sr-only peer"
                       />
@@ -396,7 +396,7 @@
                       <input
                         type="checkbox"
                         value="123 - Dressing Upper"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-123"
                         class="sr-only peer"
                       />
@@ -417,7 +417,7 @@
                       <input
                         type="checkbox"
                         value="124 - Dressing Lower"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-124"
                         class="sr-only peer"
                       />
@@ -436,7 +436,7 @@
                       <input
                         type="checkbox"
                         value="125 - Locomotion"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-125"
                         class="sr-only peer"
                       />
@@ -456,7 +456,7 @@
                       <input
                         type="checkbox"
                         value="126 - Transfer"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-126"
                         class="sr-only peer"
                       />
@@ -476,7 +476,7 @@
                       <input
                         type="checkbox"
                         value="127 - Toilet Use"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-127"
                         class="sr-only peer"
                       />
@@ -497,7 +497,7 @@
                       <input
                         type="checkbox"
                         value="128 - Bed Mobility"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-128"
                         class="sr-only peer"
                       />
@@ -517,7 +517,7 @@
                       <input
                         type="checkbox"
                         value="129 - Eating"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-129"
                         class="sr-only peer"
                       />
@@ -537,7 +537,7 @@
                       <input
                         type="checkbox"
                         value="134 - Bathing"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-134"
                         class="sr-only peer"
                       />
@@ -557,7 +557,7 @@
                       <input
                         type="checkbox"
                         value="137 - Lotion/Ointment"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-137"
                         class="sr-only peer"
                       />
@@ -578,7 +578,7 @@
                       <input
                         type="checkbox"
                         value="138 - Laundry"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-138"
                         class="sr-only peer"
                       />
@@ -597,7 +597,7 @@
                       <input
                         type="checkbox"
                         value="140 - Supervision/Coaching"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-140"
                         class="sr-only peer"
                       />
@@ -616,7 +616,7 @@
                       <input
                         type="checkbox"
                         value="141 - Incontinence Care"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-141"
                         class="sr-only peer"
                       />
@@ -635,7 +635,7 @@
                       <input
                         type="checkbox"
                         value="203 - Other"
-                        name="dutiesPerformed"
+                        name="dutiesOptions"
                         id="dp-203"
                         class="sr-only peer"
                       />
@@ -664,8 +664,7 @@
                   required
                   class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                   type="checkbox"
-                  name="consumerConsent"
-                  value="consumerConsent"
+                  name="consumeragree"
                   id="consumer-consent-checkbox"
                   onchange="enableSubmitButton()"
                 />
@@ -682,8 +681,7 @@
                   required
                   class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                   type="checkbox"
-                  value="employeeConsent"
-                  name="employeeConsent"
+                  name="employeeagree"
                   id="employee-consent-checkbox"
                   onchange="enableSubmitButton()"
                 />

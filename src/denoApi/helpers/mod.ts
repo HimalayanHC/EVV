@@ -1,14 +1,21 @@
 import { sendEmail as sendEmailWithMailChimp } from './mailClients/MailChimpClient.ts';
-
-const sendEmail = async (payload: {
-  consumerName: string;
-  employeeName: string;
-}) => {
+import type { EVVPayload } from '../utils/mod.ts';
+const sendEmail = async ({
+  employeename,
+  misseddate,
+  missedevent,
+  ...otherPayload
+}: EVVPayload) => {
   try {
-    const subject = `Missed EVV - ${payload.consumerName}/${payload.employeeName}`;
-    return sendEmailWithMailChimp(subject, JSON.stringify(payload));
+    const subject = `${misseddate}: ${employeename} ${missedevent}`;
+    return sendEmailWithMailChimp(subject, {
+      employeename,
+      misseddate,
+      missedevent,
+      ...otherPayload,
+    });
   } catch (err) {
-    console.log(err);
+    return { error: err.message };
   }
 };
 
