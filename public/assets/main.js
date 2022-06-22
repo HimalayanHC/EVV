@@ -62,12 +62,12 @@ const submitForm = async (payload) => {
       return;
     }
     serverRespSection.setAttribute('class', commonSectionClass);
-    // document
-    //   .getElementById('serverErrorSection')
-    //   .setAttribute('class', 'hidden');
-    // setTimeout(() => {
-    //   window.location.reload(true);
-    // }, 5000);
+    document
+      .getElementById('serverErrorSection')
+      .setAttribute('class', 'hidden');
+    setTimeout(() => {
+      window.location.reload(true);
+    }, 5000);
   } catch (err) {
     alert('Something went wrong!');
     window.location.reload(true);
