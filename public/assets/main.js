@@ -1,4 +1,4 @@
-const url = 'http://localhost:8000/hhc';
+const url = 'https://gnomic7-himalayanhc.deno.dev/hhc';
 
 const toggleSubmitBtn = (disabled = false) => {
   const submitBtn = document.getElementById('submitData');
